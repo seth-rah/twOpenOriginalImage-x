@@ -14,13 +14,13 @@
     },
     "content_scripts" : [
         {
-            "matches" : [ "*://twitter.com/*", "*://pbs.twimg.com/media/*", "*://tweetdeck.twitter.com/*", "*://mobile.twitter.com/*" ],
+            "matches" : [ "*://x.com/*", "*://pbs.twimg.com/media/*", "*://tweetdeck.x.com/*", "*://mobile.x.com/*" ],
             "js" : [ "js/jszip.min.js", "js/FileSaver.min.js", "js/inject_script.js", "js/tweet_api.js", "js/init.js" ],
             "run_at" : "document_start",
             "all_frames" : true
         },
         {
-            "matches" : [ "*://twitter.com/*", "*://pbs.twimg.com/media/*", "*://tweetdeck.twitter.com/*", "*://mobile.twitter.com/*" ],
+            "matches" : [ "*://x.com/*", "*://pbs.twimg.com/media/*", "*://tweetdeck.x.com/*", "*://mobile.x.com/*" ],
             "js" : [ "js/twOpenOriginalImage.user.js" ],
             "run_at" : "document_end",
             "all_frames" : true
@@ -41,11 +41,11 @@
     },
     "host_permissions" : [
         "*://*.twimg.com/*",
-        "*://*.twitter.com/*"
+        "*://*.x.com/*"
     ],
     "web_accessible_resources" : [{
         "matches" : [
-            "*://*.twitter.com/*"
+            "*://*.x.com/*"
         ],
         "resources" : [
             "js/*.js"

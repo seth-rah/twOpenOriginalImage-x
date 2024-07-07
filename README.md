@@ -5,7 +5,7 @@ Twitter 原寸びゅー (twOpenOriginalImage)
 - Copyright (c) 2016 風柳(furyu)  
 - 対象ブラウザ： Google Chrome、Firefox、Vivaldi、Opera
 
-[Web 版公式 Twitter](https://twitter.com/) ／ [TweetDeck](https://tweetdeck.twitter.com/) のツイートの画像を、原寸（URLが '～:orig' のもの）で開くボタンを付けるスクリプト。  
+[Web 版公式 Twitter](https://x.com/) ／ [TweetDeck](https://tweetdeck.x.com/) のツイートの画像を、原寸（URLが '～:orig' のもの）で開くボタンを付けるスクリプト。  
 画像のダウンロード支援スクリプト（ダウンロードされる拡張子を '～.jpg-orig' 等から、'～-orig.jpg' のように変換）もあり。  
 
 
@@ -40,7 +40,7 @@ Firefox＋<s>[Greasemonkey](https://addons.mozilla.org/ja/firefox/addon/greasemo
 
 ■ 使い方
 ---
-[Web 版公式 Twitter](https://twitter.com/) ／ [TweetDeck](https://tweetdeck.twitter.com/) 上で、画像つきツイートには [原寸画像]（[Original]）というボタンが挿入される。  
+[Web 版公式 Twitter](https://x.com/) ／ [TweetDeck](https://tweetdeck.x.com/) 上で、画像つきツイートには [原寸画像]（[Original]）というボタンが挿入される。  
 [![原寸びゅーのデモ](http://cdn-ak.f.st-hatena.com/images/fotolife/f/furyu-tei/20160319/20160319125425.png)](https://www.youtube.com/watch?v=6Z_QDlg8zDk)
 これをクリックすると、オリジナルサイズの画像（URLが'～:orig'のもの）が表示される。  
 [![原寸びゅーのデモ](http://cdn-ak.f.st-hatena.com/images/fotolife/f/furyu-tei/20160319/20160319125405.png)](https://www.youtube.com/watch?v=6Z_QDlg8zDk)
@@ -53,7 +53,7 @@ Firefox＋<s>[Greasemonkey](https://addons.mozilla.org/ja/firefox/addon/greasemo
 また、タイムラインの画像を右クリックしてコンテキストメニューを開き、[原寸画像を保存]を選べば、当該画像がダウンロードされる（このときも拡張子は自動的に変換される）。  
 
 
-■ 参考元 ( hogas ([@hogextend](https://twitter.com/hogextend/) ) 氏作成 )
+■ 参考元 ( hogas ([@hogextend](https://x.com/hogextend/) ) 氏作成 )
 ---
 - [hogashi/twitterOpenOriginalImage](https://github.com/hogashi/twitterOpenOriginalImage)  
 - [GoogleChrome拡張機能「twitter画像原寸ボタン」ver. 2.0公開 - hogashi.*](http://hogashi.hatenablog.com/entry/2016/01/01/234632)  

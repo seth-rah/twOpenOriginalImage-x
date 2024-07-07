@@ -14,19 +14,19 @@
     },
     "content_scripts" : [
         {
-            "matches" : [ "*://twitter.com/*", "*://pbs.twimg.com/media/*", "*://tweetdeck.twitter.com/*", "*://mobile.twitter.com/*" ],
+            "matches" : [ "*://x.com/*", "*://pbs.twimg.com/media/*", "*://tweetdeck.x.com/*", "*://mobile.x.com/*" ],
             "js" : [ "js/jszip.min.js", "js/FileSaver.min.js", "js/inject_script.js", "js/tweet_api.js", "js/init.js" ],
             "run_at" : "document_start",
             "all_frames" : true
         },
         {
-            "matches" : [ "*://twitter.com/*", "*://pbs.twimg.com/media/*", "*://tweetdeck.twitter.com/*", "*://mobile.twitter.com/*" ],
+            "matches" : [ "*://x.com/*", "*://pbs.twimg.com/media/*", "*://tweetdeck.x.com/*", "*://mobile.x.com/*" ],
             "js" : [ "js/twOpenOriginalImage.user.js" ],
             "run_at" : "document_end",
             "all_frames" : true
         }
     ],
-    "permissions" : [ "contextMenus", "downloads", "storage", "*://*.twimg.com/*", "*://*.twitter.com/*" ],
+    "permissions" : [ "contextMenus", "downloads", "storage", "*://*.twimg.com/*", "*://*.x.com/*" ],
     "background"  : {
         "scripts" : [ "js/background.js" ],
         "persistent" : false

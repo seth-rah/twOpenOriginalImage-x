@@ -3,7 +3,7 @@
 
 window.xhr_monitor.add_monitor(
     'twOpenOriginalImage.tweet-capture',
-    /^https:\/\/([^.]+\.)?twitter.com\//,
+    /^https:\/\/([^.]+\.)?x.com\//,
     ['GET', 'POST',]
 );
 
