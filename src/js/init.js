@@ -432,7 +432,7 @@ var extension_functions = ( () => {
                         media_list,
                         retweet_id,
                         quoted_tweet_id,
-                        quoted_tweet_url : ( ! quoted_tweet_id ) ? null : ( quoted_result?.legacy?.quoted_status_permalink?.expanded ?? `https://twitter.com/${quoted_result?.core?.user_results?.result?.legacy?.screen_name ?? 'i'}/status/${quoted_tweet_id}` ),
+                        quoted_tweet_url : ( ! quoted_tweet_id ) ? null : ( quoted_result?.legacy?.quoted_status_permalink?.expanded ?? `https://x.com/${quoted_result?.core?.user_results?.result?.legacy?.screen_name ?? 'i'}/status/${quoted_tweet_id}` ),
                     };
                 tweet_info_map[ tweet_id ] = tweet_info;
                 log_debug( 'append_tweet_info(): tweet_id=', tweet_id, tweet_info );

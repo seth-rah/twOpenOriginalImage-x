@@ -227,7 +227,7 @@ const
     get_graphql_api_endpoint = (operationName) => {
         const
             queryId = operationName_map[operationName];
-        return `https://twitter.com/i/api/graphql/${queryId}/${operationName}`;
+        return `https://x.com/i/api/graphql/${queryId}/${operationName}`;
     },
     
     auth_bearer = 'AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',

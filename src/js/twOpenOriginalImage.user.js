@@ -5,11 +5,11 @@
 // @author          furyu
 // @license         MIT
 // @version         0.1.16
-// @include         http://twitter.com/*
-// @include         https://twitter.com/*
-// @include         https://mobile.twitter.com/*
+// @include         http://x.com/*
+// @include         https://x.com/*
+// @include         https://mobile.x.com/*
 // @include         https://pbs.twimg.com/media/*
-// @include         https://tweetdeck.twitter.com/*
+// @include         https://tweetdeck.x.com/*
 // @grant           GM_getValue
 // @grant           GM_setValue
 // @grant           GM_registerMenuCommand
@@ -18,7 +18,7 @@
 // @require         https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.4/jszip.min.js
 // @require         https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js
 // @require         https://cdn.jsdelivr.net/gh/sizzlemctwizzle/GM_config@43fd0fe4de1166f343883511e53546e87840aeaf/gm_config.js
-// @connect         twitter.com
+// @connect         x.com
 // @connect         twimg.com
 // @connect         furyutei.github.io
 // @description     Open images in original size on Twitter.
@@ -39,7 +39,7 @@
 - [GoogleChrome拡張機能「twitter画像原寸ボタン」ver. 2.0公開 - hogashi.*](http://hogashi.hatenablog.com/entry/2016/01/01/234632)
   [hogashi/twitterOpenOriginalImage](https://github.com/hogashi/twitterOpenOriginalImage)
     The MIT License (MIT)
-    Copyright (c) hogas [@hogextend](https://twitter.com/hogextend)
+    Copyright (c) hogas [@hogextend](https://x.com/hogextend)
     [twitterOpenOriginalImage/LICENSE](https://github.com/hogashi/twitterOpenOriginalImage/blob/master/LICENSE)
 
 ■ 外部ライブラリ
@@ -117,7 +117,7 @@ if ( IS_TOUCHED ) {
     
 
 if ( /^https:\/\/twitter\.com\/i\/cards/.test( w.location.href ) ) {
-    // https://twitter.com/i/cards/～ では実行しない
+    // https://x.com/i/cards/～ では実行しない
     return;
 }
 
@@ -207,7 +207,7 @@ var DEBUG = false,
         
         if ( is_twitter() ) {
             try {
-                // twitter.com の場合は、サイトの言語設定に従う
+                // x.com の場合は、サイトの言語設定に従う
                 lang = d.querySelector( 'html' ).getAttribute( 'lang' );
             }
             catch ( error ) {
@@ -924,7 +924,7 @@ function is_tweet_detail_on_react_twitter( tweet ) {
     // ※ [2019.08.07] article[data-testid="tweetDetail"] は無くなり、article[role="article"] に置き換わっている
     //return ! tweet.querySelector( 'a[role="link"][href^="/"][href*="/status/"] time' );
     // ※ TODO: 個別ツイートを判別方法要検討（暫定的に、個別ツイートへのリンク(タイムスタンプ)有無で判定）
-    //return !! tweet.querySelector('a[role="link"][href*="/status/"] ~ a[role="link"][href*="/help.twitter.com/"]');
+    //return !! tweet.querySelector('a[role="link"][href*="/status/"] ~ a[role="link"][href*="/help.x.com/"]');
     // [2022.09] 個別ツイートでも 'a[role="link"][href^="/"][href*="/status/"] time' でマッチするようになったため、判定方法変更
     const
         location_tweet_id = get_tweet_id_from_tweet_url( location.href ),
@@ -933,7 +933,7 @@ function is_tweet_detail_on_react_twitter( tweet ) {
         tweet_id = get_tweet_id_from_tweet_url( tweet_link?.href ?? '' );
     log_debug( ( location_tweet_id == tweet_id ), `location_tweet_id=${location_tweet_id} vs tweet_id=${tweet_id}` );
     return ( ( location_tweet_id ) && ( tweet_id ) && ( location_tweet_id == tweet_id ) );
-    // [2023.08] a[role="link"][href*="/help.twitter.com/"]が存在しなくなっている／自身へのリンクは存在
+    // [2023.08] a[role="link"][href*="/help.x.com/"]が存在しなくなっている／自身へのリンクは存在
 } // end of is_tweet_detail_on_react_twitter()
 
 
@@ -941,8 +941,8 @@ function get_tweet_link_on_react_twitter( tweet ) {
     var tweet_link,
         timestamp_container = tweet.querySelector( [
             'a[role="link"][href^="/"][href*="/status/"] time:last-of-type',
-            'a[role="link"][href^="https://twitter.com/"][href*="/status/"] time:last-of-type',
-            'a[role="link"][href^="https://mobile.twitter.com/"][href*="/status/"] time:last-of-type',
+            'a[role="link"][href^="https://x.com/"][href*="/status/"] time:last-of-type',
+            'a[role="link"][href^="https://mobile.x.com/"][href*="/status/"] time:last-of-type',
         ].join( ',' ) );
     
     if ( timestamp_container ) {
@@ -953,7 +953,7 @@ function get_tweet_link_on_react_twitter( tweet ) {
     //    tweet_link = null;
     //    // ※個別ツイートを表示した場合、自身へのリンクが無い→ページのURLをhrefに持つリンクをダミーで作成し、ツイートソースラベルの前に挿入
     //    var tweet_url = w.location.href.replace( /[?#].*$/g, '' ),
-    //        tweet_source_label = tweet.querySelector( 'a[role="link"][href*="/help.twitter.com/"]' );
+    //        tweet_source_label = tweet.querySelector( 'a[role="link"][href*="/help.x.com/"]' );
     //    
     //    if ( tweet_source_label ) {
     //        tweet_link = tweet_source_label.parentNode.querySelector( '.' + SCRIPT_NAME + '_tweetdetail_link' );
@@ -997,7 +997,7 @@ function get_text_from_element( element ) {
 //        //auth_bearer = 'AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA';
 //        auth_bearer = 'AAAAAAAAAAAAAAAAAAAAAF7aAAAAAAAASCiRjWvh7R5wxaKkFp7MM%2BhYBqM%3DbQ0JPmjU9F6ZoMhDfI4uTNAaQuTDm2uO9x3WFVr2xBZ2nhjdP0';
 //    return fetch(
-//        ( is_react_twitter() ? 'https://twitter.com/i/api' : 'https://api.twitter.com' ) + '/1.1/statuses/show.json?include_my_retweet=true&include_entities=true&trim_user=false&include_ext_alt_text=true&include_card_uri=true&tweet_mode=extended&id=' + encodeURIComponent( tweet_id ), {
+//        ( is_react_twitter() ? 'https://x.com/i/api' : 'https://api.x.com' ) + '/1.1/statuses/show.json?include_my_retweet=true&include_entities=true&trim_user=false&include_ext_alt_text=true&include_card_uri=true&tweet_mode=extended&id=' + encodeURIComponent( tweet_id ), {
 //        method: 'GET',
 //        headers: {
 //            'authorization' : `Bearer ${auth_bearer}`,
@@ -1109,7 +1109,7 @@ const
             
         return async ( tweet_id ) => {
             const
-                url = `${is_react_page() ? 'https://twitter.com/i/api' : 'https://api.twitter.com'}/1.1/statuses/show.json?include_my_retweet=true&include_entities=true&trim_user=false&include_ext_alt_text=true&include_card_uri=true&tweet_mode=extended&id=${encodeURIComponent( tweet_id )}`,
+                url = `${is_react_page() ? 'https://x.com/i/api' : 'https://api.x.com'}/1.1/statuses/show.json?include_my_retweet=true&include_entities=true&trim_user=false&include_ext_alt_text=true&include_card_uri=true&tweet_mode=extended&id=${encodeURIComponent( tweet_id )}`,
                 options = {
                     method: 'GET',
                     headers: {
@@ -1380,10 +1380,10 @@ function save_blob( filename, blob ) {
         download_button.click();
         // TODO: src を画像のURL(https://pbs.twimg.com/media/*)としたIFRAME 内では、なぜかダウンロードではなく、ページ遷移されてしまい、
         //   その上で、CSPエラーとなってしまう(Chrome 65.0.3325.162)
-        //   Refused to frame '' because it violates the following Content Security Policy directive: "frame-src 'self' https://staticxx.facebook.com https://twitter.com https://*.twimg.com 
-        //     https://5415703.fls.doubleclick.net https://player.vimeo.com https://pay.twitter.com https://www.facebook.com https://ton.twitter.com https://syndication.twitter.com 
-        //     https://vine.co twitter: https://www.youtube.com https://platform.twitter.com https://upload.twitter.com https://s-static.ak.facebook.com https://4337974.fls.doubleclick.net 
-        //     https://8122179.fls.doubleclick.net https://donate.twitter.com".
+        //   Refused to frame '' because it violates the following Content Security Policy directive: "frame-src 'self' https://staticxx.facebook.com https://x.com https://*.twimg.com 
+        //     https://5415703.fls.doubleclick.net https://player.vimeo.com https://pay.x.com https://www.facebook.com https://ton.x.com https://syndication.x.com 
+        //     https://vine.co twitter: https://www.youtube.com https://platform.x.com https://upload.x.com https://s-static.ak.facebook.com https://4337974.fls.doubleclick.net 
+        //     https://8122179.fls.doubleclick.net https://donate.x.com".
         
         download_button.parentNode.removeChild( download_button );
     } // end of _save()
@@ -1448,7 +1448,7 @@ function download_zip( tweet_info_json ) {
         timestamp_ms = tweet_info.timestamp_ms;
         img_urls = tweet_info.img_urls;
         
-        tweet_url = /^http/.test( tweet_url ) ? tweet_url : 'https://twitter.com' + tweet_url;
+        tweet_url = /^http/.test( tweet_url ) ? tweet_url : 'https://x.com' + tweet_url;
         
         if ( ( ! tweet_url ) || ( ! img_urls ) || ( img_urls.length <= 0 ) ) {
             return false;
@@ -4055,7 +4055,7 @@ function initialize( user_options ) {
                 } )(),
                 all_img_objects = get_img_objects( source_container ),
                 gallery_media = ( gallery ) ? gallery.querySelector( '.Gallery-media, .js-embeditem' ) : null,
-                img_objects = ( gallery_media ) ? gallery_media.querySelectorAll( 'img.media-image, img.media-img, a.med-origlink[href^="https://ton.twitter.com"]' ) : null,
+                img_objects = ( gallery_media ) ? gallery_media.querySelectorAll( 'img.media-image, img.media-img, a.med-origlink[href^="https://ton.x.com"]' ) : null,
                 action_list = ( gallery_media ) ? gallery_media.querySelector( '.js-media-preview-container' ) : null,
                 img_urls = [],
                 all_img_urls = [];
@@ -4191,7 +4191,7 @@ function initialize( user_options ) {
                             }
                         }
                         else {
-                            tweet_link = tweet.querySelector( 'a[rel="url"][href^="https://twitter.com/"],a[rel="url"][href^="/"]' );
+                            tweet_link = tweet.querySelector( 'a[rel="url"][href^="https://x.com/"],a[rel="url"][href^="/"]' );
                             tweet_url = tweet.getAttribute( 'data-permalink-path' ) || ( tweet_link && tweet_link.href );
                             tweet_text = tweet.querySelector( '.tweet-text,.js-tweet-text' );
                         }
