@@ -1,3 +1,9 @@
+## Twitter to X replace fork
+
+This is a fork of the original repository that replaces references from twitter.com to x.com 
+
+## Original Readme
+
 Twitter 原寸びゅー (twOpenOriginalImage)
 ========================================
 
